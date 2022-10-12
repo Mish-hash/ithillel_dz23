@@ -1,12 +1,14 @@
+import { useSelector } from 'react-redux';
 import styles from './NoteList.module.scss';
 
 function NoteList() {
+
+    const notes = useSelector(state => state.notes);
+
     return(
-        <div>
-            <ul>
-                <li>First NOTE</li>
-                <li>Second NOTE</li>
-                <li>Third NOTE</li>
+        <div >
+            <ul className={styles.container}>
+                {notes.map(el => <li key={`note_${el.id}`}>{el.text}</li>)}
             </ul>
         </div>
     );

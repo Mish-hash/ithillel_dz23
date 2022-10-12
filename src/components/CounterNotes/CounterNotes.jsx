@@ -1,10 +1,13 @@
+import { useSelector } from 'react-redux';
 import styles from './CounterNotes.module.scss';
 
 function CounterNotes() {
+
+    const counter = useSelector(state => state.totalNotes);
+
     return(
         <div>
-            <p>42</p>
-            <input type='text'/>
+            <p>{counter} notes added</p>
         </div>
     );
 }
